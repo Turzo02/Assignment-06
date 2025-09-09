@@ -1,167 +1,26 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
+1.Ans:
+i.let abd const are block scope and var is function scope
+ii.var and let are allowed reassignments but const is not allowed
+iii.const redeclaration is not allowed , var is allowed, let is not allowed inside same scope
 
-### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
+2.Ans:
+i.map() returns a new array it transform each element in the array
+ii. we use forEach() to loop through an array and do something with each element
+ii.filter() returns a new array and also it is based on consditions
 
-### 📅 Deadline For 50 marks : 13th September , 2025 (6:00 pm⏱️)
+3.Ans:
+arrow functions are short syntax for writing functions
 
-### 📅 Deadline For 30 marks: Any time after 13the September , 2025 (6:01 pm⏱️).
+4.Ans:
+Destucturing allows us to extract value from an object or array and also assign them into variables
 
----
-# Green Earth
+for example: 
+const arr = [1,2,3]
+the if we write this👇 way , we are assigning the value of index 0 to a , index 1 to b and index 2 to c
+const [a,b,c] = arr
+after  that if we console.log(a,b,c) we will get 1,2,3 as a output
 
+5.Ans:
+Template literals are string literals allowing embedded expressions inside them.  it is different from string concatenation because we use backticks to create a template literal instead of double or single quotes and this supports multi-line strings , easier string concatenation and string interpolation
 
-## Private Repository: https://classroom.github.com/a/nVZrg5R9 
 
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST 
-
-
----
-🌴 API Endpoints
----
-1. Get 🌴All Plants
-```bash
-https://openapi.programming-hero.com/api/plants
-```
-
-2. Get 🌴All categories <br/>
-```bash
-https://openapi.programming-hero.com/api/categories
-```
-
-
-3. Get 🌴plants by categories <br/>
-```bash
-https://openapi.programming-hero.com/api/category/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/category/1
-```
-
-4. Get 🌴Plants Detail <br/>
-
-```bash
-https://openapi.programming-hero.com/api/plant/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/plant/1
-```
----
-
-
-
-
-## ✅ Main Requirements 
-
-#### 1) Navbar
-
-- Website **logo/name** on the **left**  
-- **Menu items** in the **center** 
-- **Plant a Tree button** on the **right** 
-
-#### 2) Banner 
-- A **background image**  
-- A **title** and **subtitle**  
-- A **centered button**  
-
-#### 3) About Campaign
-- **Section heading**  
-- **Image on the left**, **text on the right**  
-
-#### 4) Our Impact Section 
-- Show **3 cards** with campaign **statistics**  
-
-#### 5) Plant a Tree Today Section & Footer
-- **Form**: Name, Email, Number of Trees  
-- **Footer** with copyright info 
-
-#### 6) Responsiveness 
-- Website must be **mobile responsive**  
-
----
-#### 7) Create a README file to answer the following question-
-
-
-#### 1) What is the difference between var, let, and const?
-
-#### 2) What is the difference between map(), forEach(), and filter()? 
-
-#### 3) What are arrow functions in ES6?
-
-#### 4) How does destructuring assignment work in ES6?
-
-#### 5) Explain template literals in ES6. How are they different from string concatenation?
-
-## ⚙️ Functionalities 
-
-1) Category Loading 
-Load Tree Categories dynamically on the left side.
-
-2) Category Click → Tree Data 
-On clicking a category: load trees of that category.
-
-Display in a 3-column card layout.
-
-3) Card Contents 
- Each card includes:
-
-        - Image
-
-        -  Name
-
-        - Short description
-
-        - Category
-
-        - Price
-
-        - Add to Cart button
-
-4) Modal on Card Click 
-Clicking a tree name on a card opens a modal with full tree details.
-
-
-##  🧪 Challenges 
-
-
-    1) Add to Cart 
-    Clicking Add to Cart: - Adds the tree to Cart List
-                          - Shows tree name 
-
-    2) Total Calculation 
-    Calculate total price of trees in cart.
-
-    3) Remove from Cart 
-    Clicking ❌ removes tree and deducts price from total.
-
-    4) Loading Spinner
-    Show spinner while data is loading.
-
-    5) Active Button State 
-    Highlight active category button when selected.
-
-
-
-🧰 Technology Stack:
-        
-        HTML
-
-        CSS (Vanilla / Tailwind / DaisyUI)
-
-        JavaScript (Vanilla only, no frameworks)
-
-📌 Rules
-✅ At least 5 meaningful commits
-
-❌ No dummy text or Lorem Ipsum — must use relevant content
-
-
-
-
-
-## 🔗 Submission
-- **Live Link :** YOUR_DEPLOYED_URL_HERE  
-- **GitHub Private Repository:** YOUR_REPO_URL_HERE  
-
----
