@@ -4,11 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Earth</title>
+    <!-- tailewind & daisyui Cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
+    <title>Green Earth</title>
 </head>
 
 <body>
+
+
+    <!-- avbar Section -->
+    <section>
+        <nav class="bg-[#15803D]">
+            <div class="navbar  shadow-sm max-w-[1650px] mx-auto">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <li><a href="#">About</a></li>
+                            <li>
+                                <a href="#">Gallery</a>
+                            </li>
+                            <li><a href="#">Plants</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-ghost text-xl text-white hover:text-[#15803d]" href="#">Green Earth</a>
+                </div>
+                <div class="navbar-center hidden lg:flex text-white">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a href="#">About</a></li>
+                        <li>
+                            <a href="#">Gallery</a>
+                        </li>
+                        <li><a href="#">Plants</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <button
+                        class="btn btn-warning rounded-3xl bg-[#FACC15] text-[#15803D] border-0  hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out">
+                        Plant a Tree
+                    </button>
+
+                </div>
+            </div>
+        </nav>
+    </section>
 
 
     <h1>Green Earth</h1>
