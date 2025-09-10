@@ -71,7 +71,7 @@ fetch(categoryUrl)
 const displayCardsInfo = (allPlants) => {
   const container = document.getElementById("card-container");
   container.innerHTML = "";
-
+     
   allPlants.plants.forEach((element) => {
     const div = document.createElement("div");
     div.className =
@@ -103,6 +103,14 @@ const displayCardsInfo = (allPlants) => {
     `;
 
     container.appendChild(div);
+    
+    // Add click event to add text in add to cart
+     const singlePlantsData = `https://openapi.programming-hero.com/api/plant/${element.id}`;
+     console.log(singlePlantsData);
+
+
+
+
   });
 };
 
@@ -117,7 +125,6 @@ fetch(allPlantsUrl)
 const container = document.getElementById("card-container");
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("closeModal");
-const cartContent = document.getElementById("cartContent");
 
 document.getElementById("card-container").addEventListener("click", (e) => {
   if (e.target.tagName === "H1" && e.target.closest(".card")) {
@@ -128,12 +135,13 @@ document.getElementById("card-container").addEventListener("click", (e) => {
     const modalContent = document.getElementById("modalContent");
     modalContent.innerHTML = `${popup.innerHTML} 
     `;
-  } 
+  }
 });
-
-
 
 closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
   modal.classList.remove("flex");
 });
+
+
+
