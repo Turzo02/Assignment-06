@@ -1,147 +1,184 @@
-const categoryUrl = "https://openapi.programming-hero.com/api/categories";
-const allPlantsUrl = "https://openapi.programming-hero.com/api/plants";
 
-//yourcart Functionality
+//?? catergoryList automatically show when page reload done
+const catergoryList = () => {
+  const url = "https://openapi.programming-hero.com/api/categories";
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayCategoryList(data));
+};
 
-const displayCategory = (catg) => {
-  const container = document.getElementById("category-list");
-  container.innerHTML = ``;
-
-  catg.categories.forEach((element) => {
+const displayCategoryList = (data) => {
+    const categorylist = document.getElementById("category-list");
+    categorylist.innerHTML = ``;
+  data.categories.forEach((element) => {
     const li = document.createElement("li");
-    li.innerText = element.category_name;
-    li.className =
-      " p-2 mb-1 rounded-sm bg-green-50 text-black shadow-sm font-medium cursor-pointer hover:bg-[#15803d] hover:text-white transition-all duration-200";
-
-    container.appendChild(li);
-
-    // Add click event
-    const plantsUrlByCategoryWise = `https://openapi.programming-hero.com/api/category/${element.id}`;
-    li.addEventListener("click", (event) => {
-      const displayOnlyCategoryWise = (element) => {
-        const container = document.getElementById("card-container");
-        container.innerHTML = "";
-        element.plants.forEach((element) => {
-          const div = document.createElement("div");
-          div.className =
-            "card p-4 bg-white shadow:md hover:shadow-lg transition-all duration-300";
-          div.innerHTML = `
-    
-           <div class="top h-[200px]">
-                        <img src="${element.image}" alt="" class="w-full h-full object-cover rounded-2xl" />
-                    </div>
-                    <div class="middle">
-                        <h1 class="text-xl font-semibold mt-1">${element.name}</h1>
-                           <p class="mb-1 text-[12px] text-gray-600 h-[40px] overflow-hidden relative ">
-                          <span class="line-clamp-2">
-                            ${element.description}
-                          </span>
-                        </p>
-                    </div>
-                    <div class="bottom1 flex justify-between mb-2">
-                        <span class="bg-[#dcfce7] rounded-2xl p-2 px-3 py-1 text-sm">${element.category}</span>
-                        <span class="font-bold"><b>৳</b>${element.price}</span>
-                    </div>
-
-                    <div >
-                        <button 
-                            class="addToCart btn w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300">Add
-                            to Cart</button>
-                    </div>
-    
-    `;
-          container.appendChild(div);
-        });
-      };
-      fetch(plantsUrlByCategoryWise)
-        .then((res) => res.json())
-        .then((json) => displayOnlyCategoryWise(json))
-        .catch((error) => console.error("Error:", error));
-    });
+    li.innerHTML = `
+       <li onclick="categloryClick(${element.id})" class="mb-1 w-full btn btn-outline btn-success justify-start">  ${element.category_name}</li>
+   `;
+    // console.log(element.category_name);
+    categorylist.appendChild(li);
   });
 };
 
-fetch(categoryUrl)
-  .then((res) => res.json())
-  .then((json) => displayCategory(json))
-  .catch((error) => console.error("Error:", error));
+catergoryList();
 
-//   upstream all code is done dont change
-
-const displayCardsInfo = (allPlants) => {
-  const container = document.getElementById("card-container");
-  container.innerHTML = "";
-     
-  allPlants.plants.forEach((element) => {
-    const div = document.createElement("div");
-    div.className =
-      "card p-4 bg-white shadow:md hover:shadow-lg transition-all duration-300";
-    div.innerHTML = `
-    
-           <div class="top h-[200px]">
-                        <img src="${element.image}" alt="" class="w-full h-full object-cover rounded-2xl" />
-                    </div>
-                    <div class="middle">
-                        <h1 class="text-xl font-semibold mt-1">${element.name}</h1>
-                           <p class="mb-1 text-[12px] text-gray-600 h-[40px] overflow-hidden relative ">
-                          <span class="line-clamp-2">
-                            ${element.description}
-                          </span>
-                        </p>
-                    </div>
-                    <div class="bottom1 flex justify-between mb-2">
-                        <span class="bg-[#dcfce7] rounded-2xl p-2 px-3 py-1 text-sm">${element.category}</span>
-                        <span class="font-bold"><b>৳</b>${element.price}</span>
-                    </div>
-
-                    <div>
-                        <button
-                          class=" addToCart btn  w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300">Add
-                            to Cart</button>
-                    </div>
-    
-    `;
-
-    container.appendChild(div);
-    
-    // Add click event to add text in add to cart
-     const singlePlantsData = `https://openapi.programming-hero.com/api/plant/${element.id}`;
-     console.log(singlePlantsData);
-
-
-
-
-  });
+//?? allplants automatically show when page reload done
+const allPlants = () => {
+  const url = "https://openapi.programming-hero.com/api/plants";
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayAllPlants(data));
 };
 
-fetch(allPlantsUrl)
-  .then((res) => res.json())
-  .then((json) => displayCardsInfo(json))
-  .catch((error) => console.error("Error:", error));
+const displayAllPlants = (data) => {
 
-//   upstream all code is goood dootn change
+const cardContainer = document.getElementById("cardContainer");
+  cardContainer.innerHTML = ``;
 
-// Add click event show modal
-const container = document.getElementById("card-container");
-const modal = document.getElementById("modal");
-const closeModal = document.getElementById("closeModal");
+  data.plants.forEach((element) => {
+    const cardDiv = document.createElement("div")
+    cardDiv.innerHTML = `
+     <div class="card p-4 bg-white shadow:md hover:shadow-lg "> 
+                <div class="top h-[200px]">
+                    <img src="${element.image}" alt="" class="w-full h-full object-cover rounded-2xl" />
+                </div>
+                <div class="middle">
+                    <h1 class="text-xl font-semibold mt-1" onclick="clickH1ForModal(${element.id})" >${element.name}</h1>
+                    <p class="mb-1 text-[12px] text-gray-600 h-[40px] overflow-hidden relative ">
+                        <span class="line-clamp-2">
+                            ${element.description}
+                        </span>
+                    </p>
+                </div>
+                <div class="bottom1 flex justify-between my-2">
+                    <span class="bg-[#dcfce7] rounded-2xl p-2 px-3 py-1 text-sm">${element.category}</span>
+                    <span class="font-bold"><b>৳</b>${element.price}</span>
+                </div>
+                <div>
+                    <button
+                        class="addToCart btn w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300" > Add to Cart </button>
+                </div>
 
-document.getElementById("card-container").addEventListener("click", (e) => {
-  if (e.target.tagName === "H1" && e.target.closest(".card")) {
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    const popup = e.target.closest(".card");
 
-    const modalContent = document.getElementById("modalContent");
-    modalContent.innerHTML = `${popup.innerHTML} 
+            </div>  
+
     `;
-  }
-});
 
+    cardContainer.appendChild(cardDiv);
+  });
+
+
+};
+
+allPlants();
+
+// ??when click category then show only that category plants
+const categloryClick = (id) => {
+
+const url = "https://openapi.programming-hero.com/api/category/"+id;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayPlantsByCategoryWise(data));
+};
+
+const displayPlantsByCategoryWise = (data) => {
+const cardContainer = document.getElementById("cardContainer");
+  cardContainer.innerHTML = ``;
+
+  data.plants.forEach(element => {
+
+  const cardDiv = document.createElement("div")
+    cardDiv.innerHTML = `
+     <div class="card p-4 bg-white shadow:md hover:shadow-lg "> 
+                <div class="top h-[200px]">
+                    <img src="${element.image}" alt="" class="w-full h-full object-cover rounded-2xl" />
+                </div>
+                <div class="middle">
+                    <h1 class="text-xl font-semibold mt-1" onclick="clickH1ForModal(${element.id})">${element.name}</h1>
+                    <p class="mb-1 text-[12px] text-gray-600 h-[40px] overflow-hidden relative ">
+                        <span class="line-clamp-2">
+                            ${element.description}
+                        </span>
+                    </p>
+                </div>
+                <div class="bottom1 flex justify-between my-2">
+                    <span class="bg-[#dcfce7] rounded-2xl p-2 px-3 py-1 text-sm">${element.category}</span>
+                    <span class="font-bold"><b>৳</b>${element.price}</span>
+                </div>
+                <div>
+                    <button
+                        class="addToCart btn w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300"  > Add to Cart </button>
+                </div>
+
+
+            </div>  
+
+    `;
+    cardContainer.appendChild(cardDiv);
+
+  });
+
+};
+
+// ??when click h1 of card then show a modal
+
+const clickH1ForModal = (id) => {
+  const url = "https://openapi.programming-hero.com/api/plant/"+id;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayModalAfterClick(data));
+}
+
+const displayModalAfterClick = (data) => {
+const modal = document.getElementById("modal")
+modal.classList.remove("hidden")
+modal.classList.add("flex")
+
+
+const modalContent = document.getElementById("modalContent")
+modalContent.innerHTML = ``
+
+const cardDiv = document.createElement("div")
+cardDiv.innerHTML = `
+
+   <div
+                     class="bg-white rounded-lg shadow-xl max-w-sm w-full overflow-hidden">
+                        <div class="p-2 md:p-3">
+                            <h1 class="text-2xl font-bold mb-4">${data.plants.name}</h1>
+                        </div>
+
+                        <div class="relative max-w-[400px] max-h-[200px] overflow-hidden">
+                            <img src="${data.plants.image}"
+                                alt="image of tree"
+                                class=" object-cover rounded-t-lg">
+                        </div>
+
+                        <div class="p-2 md:p-3 space-y-2 text-gray-600">
+                            <p class="text-sm ">
+                                <span class="font-bold text-black">Category:</span> ${data.plants.category}
+                            </p>
+                            <p class="text-sm ">
+                                <span class="font-bold text-black">Price: </span>৳${data.plants.price}
+                            </p>
+                            <p class="text-sm">
+                                <span class="font-bold text-black">Description:</span> ${data.plants.description}
+                            </p>
+                        </div>
+
+                        <div class="p-2 md:p-3 pt-0 flex justify-end">
+                            <button id="closeModal" class="btn btn-outline btn-success  ">
+                                Close
+                            </button>
+                            
+                        </div>
+                    </div>
+`
+modalContent.appendChild(cardDiv)
+
+const closeModal = document.getElementById("closeModal")
 closeModal.addEventListener("click", () => {
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
-});
+  modal.classList.add("hidden")
+  modal.classList.remove("flex")
+})
 
-
-
+}
