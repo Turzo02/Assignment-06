@@ -96,7 +96,7 @@
 
 
         <!-- ??catergories list -->
-        <div class="left  w-full md:w-1/6 border-2">
+        <div class="left  w-full md:w-1/6 ">
             <h1 class="text-2xl font-semibold mb-2">Categories</h1>
             <div class="catergoriesName" id="Categories">
                 <ul id="category-list">
@@ -111,9 +111,9 @@
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="relative bg-white rounded-lg  p-6 w-[500px] z-50 flex justify-center">
 
-                <div id="modalContent"  >
+                <div id="modalContent">
 
-                 
+
 
                 </div>
 
@@ -123,10 +123,10 @@
 
 
         <!-- ??cards done -->
-        <div id="cardContainer" class="middle grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1 border-2">
+        <div id="cardContainer" class="middle grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1 ">
 
 
-            <!-- card -->
+            <!--?? card -->
             <!-- <div
                class="card p-4  bg-white shadow:md hover:shadow-lg "> 
                 <div class="top h-[200px]">
@@ -154,32 +154,29 @@
 
         </div>
 
-        <!-- cart undone -->
+        <!-- ??cart undone -->
         <div class="right  bg-white w-full md:w-1/6 rounded-2xl">
             <div id="cart">
                 <h1 class="text-2xl font-semibold mb-2 text-center">Your Cart</h1>
                 <!-- cart Content -->
-                <div id="cartContent" class=" bg-amber-500 hidden  ">
+                <div id="cartContent" >
 
-                    <!-- eikhane ekta div dhukbe -->
+                    <div id="parentCart">
+                        <!-- ekhane ekta div -->
 
-                    <div class=" flex justify-between px-3 py-2 bg-[#f0fdf4] rounded-2xl">
 
-                        <div class="cartLeft">
-                            <h1 class="font-semibold ">Mango Tree</h1>
-                            <p><b><b>৳</b></b><span>600</span> x <span>1</span></p>
-                        </div>
-                        <div id="cartRight"> ❌ </div>
                     </div>
 
-                    <div class="totalCost flex justify-between p-3">
+                    <div id="totalCost" class="totalCost  justify-between p-3 bg-[#f0fdf4] flex">
                         <div class="totalCostLeft">
                             Total:
                         </div>
                         <div class="totalCostRight">
-                            <b> <b>৳</b><span>999</span></b>
+                            <b> <b>৳</b><span id="cartTotalPrice"></span></b>
                         </div>
                     </div>
+
+
 
 
                 </div>
@@ -278,7 +275,8 @@
     </section>
 
 
-    <script src="./script.js"></script>
+    <script src="./script/index.js"></script>
+    <script src="./script/challenge.js"></script>
 </body>
 
 </html>

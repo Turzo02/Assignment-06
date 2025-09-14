@@ -1,4 +1,3 @@
-
 //?? catergoryList automatically show when page reload done
 const catergoryList = () => {
   const url = "https://openapi.programming-hero.com/api/categories";
@@ -8,15 +7,15 @@ const catergoryList = () => {
 };
 
 const displayCategoryList = (data) => {
-    const categorylist = document.getElementById("category-list");
-    categorylist.innerHTML = ``;
+  const categorylist = document.getElementById("category-list");
+  categorylist.innerHTML = ``;
   data.categories.forEach((element) => {
     const li = document.createElement("li");
     li.innerHTML = `
        <li onclick="categloryClick(${element.id})" class="mb-1 w-full btn btn-outline btn-success justify-start">  ${element.category_name}</li>
    `;
-    // console.log(element.category_name);
-    categorylist.appendChild(li);
+
+   categorylist.appendChild(li);
   });
 };
 
@@ -31,12 +30,11 @@ const allPlants = () => {
 };
 
 const displayAllPlants = (data) => {
-
-const cardContainer = document.getElementById("cardContainer");
+  const cardContainer = document.getElementById("cardContainer");
   cardContainer.innerHTML = ``;
 
   data.plants.forEach((element) => {
-    const cardDiv = document.createElement("div")
+    const cardDiv = document.createElement("div");
     cardDiv.innerHTML = `
      <div class="card p-4 bg-white shadow:md hover:shadow-lg "> 
                 <div class="top h-[200px]">
@@ -56,7 +54,7 @@ const cardContainer = document.getElementById("cardContainer");
                 </div>
                 <div>
                     <button
-                        class="addToCart btn w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300" > Add to Cart </button>
+                        class="addToCart btn w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300" onclick="addToCart('${element.name}',${element.price})" > Add to Cart </button>
                 </div>
 
 
@@ -66,28 +64,25 @@ const cardContainer = document.getElementById("cardContainer");
 
     cardContainer.appendChild(cardDiv);
   });
-
-
 };
 
 allPlants();
 
 // ??when click category then show only that category plants
 const categloryClick = (id) => {
-
-const url = "https://openapi.programming-hero.com/api/category/"+id;
+    
+  const url = "https://openapi.programming-hero.com/api/category/" + id;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayPlantsByCategoryWise(data));
 };
 
 const displayPlantsByCategoryWise = (data) => {
-const cardContainer = document.getElementById("cardContainer");
+  const cardContainer = document.getElementById("cardContainer");
   cardContainer.innerHTML = ``;
 
-  data.plants.forEach(element => {
-
-  const cardDiv = document.createElement("div")
+  data.plants.forEach((element) => {
+    const cardDiv = document.createElement("div");
     cardDiv.innerHTML = `
      <div class="card p-4 bg-white shadow:md hover:shadow-lg "> 
                 <div class="top h-[200px]">
@@ -107,7 +102,7 @@ const cardContainer = document.getElementById("cardContainer");
                 </div>
                 <div>
                     <button
-                        class="addToCart btn w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300"  > Add to Cart </button>
+                        class="addToCart btn w-full border-none rounded-3xl text-white bg-[#15803d]  hover:bg-[#166534] transition-colors duration-300" onclick="addToCart('${element.name}',${element.price})"  > Add to Cart </button>
                 </div>
 
 
@@ -115,31 +110,31 @@ const cardContainer = document.getElementById("cardContainer");
 
     `;
     cardContainer.appendChild(cardDiv);
-
   });
+
+
 
 };
 
-// ??when click h1 of card then show a modal
+// ??when click h1 of any card then show a modal
 
 const clickH1ForModal = (id) => {
-  const url = "https://openapi.programming-hero.com/api/plant/"+id;
+  const url = "https://openapi.programming-hero.com/api/plant/" + id;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayModalAfterClick(data));
-}
+};
 
 const displayModalAfterClick = (data) => {
-const modal = document.getElementById("modal")
-modal.classList.remove("hidden")
-modal.classList.add("flex")
+  const modal = document.getElementById("modal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
 
+  const modalContent = document.getElementById("modalContent");
+  modalContent.innerHTML = ``;
 
-const modalContent = document.getElementById("modalContent")
-modalContent.innerHTML = ``
-
-const cardDiv = document.createElement("div")
-cardDiv.innerHTML = `
+  const cardDiv = document.createElement("div");
+  cardDiv.innerHTML = `
 
    <div
                      class="bg-white rounded-lg shadow-xl max-w-sm w-full overflow-hidden">
@@ -172,13 +167,12 @@ cardDiv.innerHTML = `
                             
                         </div>
                     </div>
-`
-modalContent.appendChild(cardDiv)
+`;
+  modalContent.appendChild(cardDiv);
 
-const closeModal = document.getElementById("closeModal")
-closeModal.addEventListener("click", () => {
-  modal.classList.add("hidden")
-  modal.classList.remove("flex")
-})
-
-}
+  const closeModal = document.getElementById("closeModal");
+  closeModal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  });
+};
