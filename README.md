@@ -17,6 +17,12 @@ This project demonstrates **dynamic UI**, **state management**, and **responsive
 
 ---
 
+## 📸 Screenshot
+
+![Project Screenshot](https://i.ibb.co.com/1JQ3y9wf/Screenshot-2025-11-19-125931.png)
+
+---
+
 ## ⚡ Key Features
 
 ### 🧭 Navigation & Banner
@@ -45,11 +51,7 @@ This project demonstrates **dynamic UI**, **state management**, and **responsive
 
 ---
 
-## 📸 Screenshot
 
-![Project Screenshot](https://i.ibb.co.com/1JQ3y9wf/Screenshot-2025-11-19-125931.png)
-
----
 
 ## 🛠️ Main Technologies
 | Frontend | Styling | JavaScript |
